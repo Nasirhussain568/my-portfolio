@@ -1,67 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nasir Hussain | Full Stack & Backend Developer</title>
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-        .card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 20px; transition: 0.3s; }
-        .card:hover { border-color: #58a6ff; }
-        .tech-tag { background: #1f6feb; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 5px; }
-    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',    // slate-900
+                            card: '#1e293b',    // slate-800
+                            border: '#334155',  // slate-700
+                            primary: '#38bdf8', // sky-400
+                            accent: '#818cf8',  // sky-400
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="p-8 md:p-24">
+<body class="bg-brand-dark text-slate-300 font-sans antialiased selection:bg-brand-primary selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="max-w-4xl mx-auto mb-16 text-center">
-        <h1 class="text-4xl font-bold text-white mb-2">Nasir Hussain</h1>
-        <p class="text-xl text-blue-400 mb-4">Full Stack Developer | Backend Specialist</p>
-        <div class="flex justify-center gap-4">
-            <a href="https://github.com/Nasirhussain568" class="hover:text-white underline">GitHub</a>
-            <a href="#" class="hover:text-white underline">LinkedIn</a>
-        </div>
-    </header>
+    <!-- Subtle background glow effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-brand-primary opacity-10 blur-[100px] pointer-events-none"></div>
 
-    <!-- Skills Section -->
-    <section class="max-w-4xl mx-auto mb-16">
-        <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Technical Skills</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <div class="card"><strong>Languages:</strong><br>JavaScript (ES6), TypeScript</div>
-            <div class="card"><strong>Backend:</strong><br>Node.js, Express, NestJS</div>
-            <div class="card"><strong>Database:</strong><br>Prisma, Firebird SQL, PostgreSQL</div>
-            <div class="card"><strong>Tools:</strong><br>Git, Docker, GitHub Actions</div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Recent Projects</h2>
+    <main class="flex-grow w-full max-w-5xl mx-auto px-6 py-16 md:py-24 z-10 relative">
         
-        <div class="space-y-6">
-            <!-- Project 1 -->
-            <div class="card">
-                <h3 class="text-xl font-bold text-blue-400 mb-2">Enterprise Stock Management System</h3>
-                <p class="mb-4 text-gray-400">Integrated Node.js with a legacy Firebird SQL database using Prisma ORM. Developed a custom Excel export engine for real-time stock reporting.</p>
-                <div>
-                    <span class="tech-tag">Node.js</span><span class="tech-tag">Prisma</span><span class="tech-tag">Firebird</span>
+        <!-- Header / Hero Section -->
+        <header class="mb-20 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+                <p class="text-brand-primary font-semibold tracking-wide uppercase text-sm mb-2">Hello, I'm</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 mb-4 tracking-tight">
+                    Nasir Hussain
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 font-light max-w-2xl">
+                    Full Stack Developer & Backend Specialist building scalable, high-performance systems.
+                </p>
+                
+                <!-- Action Buttons & Links -->
+                <div class="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a href="mailto:your.email@example.com" class="px-6 py-3 rounded-lg bg-brand-primary hover:bg-sky-300 text-slate-900 font-semibold transition-all duration-300 shadow-lg shadow-sky-500/20 transform hover:-translate-y-0.5">
+                        Contact Me
+                    </a>
+                    <a href="https://github.com/Nasirhussain568" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg border border-brand-border hover:border-slate-400 bg-brand-card hover:bg-slate-700 text-white font-medium transition-all duration-300 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        GitHub
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg border border-brand-border hover:border-slate-400 bg-brand-card hover:bg-slate-700 text-white font-medium transition-all duration-300 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
             </div>
+        </header>
 
-            <!-- Project 2 -->
-            <div class="card">
-                <h3 class="text-xl font-bold text-blue-400 mb-2">Cardiac Output Healthcare Backend</h3>
-                <p class="mb-4 text-gray-400">A high-performance backend system for processing medical data and managing patient records securely.</p>
-                <div>
-                    <span class="tech-tag">TypeScript</span><span class="tech-tag">REST API</span><span class="tech-tag">Security</span>
+        <!-- Skills Section -->
+        <section class="mb-20">
+            <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-brand-primary rounded-full"></span>
+                Technical Arsenal
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Skill Card -->
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6 hover:border-brand-primary transition-colors duration-300">
+                    <h3 class="text-white font-semibold mb-3">Languages</h3>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> TypeScript</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> JavaScript (ES6+)</li>
+                    </ul>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6 hover:border-brand-primary transition-colors duration-300">
+                    <h3 class="text-white font-semibold mb-3">Backend</h3>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Node.js</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> NestJS</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Express</li>
+                    </ul>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6 hover:border-brand-primary transition-colors duration-300">
+                    <h3 class="text-white font-semibold mb-3">Database & ORM</h3>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Prisma ORM</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> PostgreSQL / MongoDB</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Firebird SQL</li>
+                    </ul>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6 hover:border-brand-primary transition-colors duration-300">
+                    <h3 class="text-white font-semibold mb-3">Tools & DevOps</h3>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Git & GitHub</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Docker</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> GitHub Actions</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-brand-primary rounded-full"></span>
+                Featured Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="group bg-brand-card border border-brand-border rounded-2xl p-8 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-primary/10 hover:border-brand-primary/50 transition-all duration-300 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition-colors">Enterprise Stock Management System</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Integrated Node.js with a legacy Firebird SQL database using Prisma ORM. Developed a robust RESTful API and a custom Excel export engine for real-time stock variance reporting.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Node.js</span>
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Prisma</span>
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Firebird SQL</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group bg-brand-card border border-brand-border rounded-2xl p-8 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-primary/10 hover:border-brand-primary/50 transition-all duration-300 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-primary transition-colors">Cardiac Output Healthcare Backend</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Architected a high-performance backend system for processing medical data. Implemented secure role-based access control, file attachment handling, and complex relational data structures.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">TypeScript</span>
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">NestJS</span>
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Security</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-brand-border bg-brand-card z-10">
+        <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between text-slate-500 text-sm">
+            <p>&copy; 2024 Nasir Hussain. All rights reserved.</p>
+            <p class="mt-2 md:mt-0 flex items-center gap-1">
+                Built with <svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg> & Tailwind CSS
+            </p>
         </div>
-    </section>
-
-    <footer class="mt-24 text-center text-gray-500 text-sm">
-        &copy; 2024 Nasir Hussain. Built with HTML & Tailwind CSS.
     </footer>
 
 </body>
